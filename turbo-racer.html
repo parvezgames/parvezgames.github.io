@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Turbo Racer | PARVEZ GAMES</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#05070d;color:#fff;font-family:Arial,sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center;overflow:hidden}
+.wrap{width:min(900px,100vw);padding:12px;text-align:center}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+h1{font-size:22px;margin:0;color:#00bfff}
+button{border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer;background:#00bfff;color:#fff}
+#game{position:relative;margin:auto;width:min(480px,94vw);aspect-ratio:480/720;background:#222;border:2px solid #23334b;border-radius:18px;overflow:hidden;box-shadow:0 20px 60px #000}
+canvas{width:100%;height:100%;display:block}
+.hud{position:absolute;top:10px;left:12px;right:12px;display:flex;justify-content:space-between;pointer-events:none;font-weight:800;text-shadow:0 2px 4px #000}
+.controls{display:flex;justify-content:center;gap:14px;margin-top:12px}
+.controls button{width:110px;font-size:20px}
+.help{color:#8e9bb0;font-size:13px;margin-top:8px}
+.overlay{position:absolute;inset:0;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px}
+.overlay h2{font-size:34px;margin:0}.overlay p{margin:0;color:#cbd4e3}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <h1>🏎️ TURBO RACER</h1>
+    <button onclick="location.href='index.html'">← PARVEZ GAMES</button>
+  </div>
+  <div id="game">
+    <canvas id="c" width="480" height="720"></canvas>
+    <div class="hud"><span id="score">Score: 0</span><span id="best">Best: 0</span></div>
+    <div id="overlay" class="overlay">
+      <h2>Turbo Racer</h2>
+      <p>Use ← → or the buttons below</p>
+      <button id="start">▶ START GAME</button>
+    </div>
+  </div>
+  <div class="controls">
+    <button id="left">◀ LEFT</button>
+    <button id="right">RIGHT ▶</button>
+  </div>
+  <div class="help">Avoid the traffic and survive as long as possible.</div>
+</div>
+<script>
+const canvas=document.getElementById('c'),ctx=canvas.getContext('2d');
+const W=480,H=720;
+let running=false,score=0,best=Number(localStorage.turboBest||0),speed=6;
+let lane=1,carX=180,targets=[],last=0,spawn=0;
+document.getElementById('best').textContent='Best: '+best;
+
+function road(){
+  ctx.fillStyle='#1d6b36';ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='#30343a';ctx.fillRect(65,0,350,H);
+  ctx.fillStyle='#171a1e';ctx.fillRect(78,0,324,H);
+  ctx.strokeStyle='#f4f4f4';ctx.lineWidth=6;ctx.setLineDash([35,35]);
+  ctx.lineDashOffset=-(performance.now()/8)%70;
+  ctx.beginPath();ctx.moveTo(186,0);ctx.lineTo(186,H);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(294,0);ctx.lineTo(294,H);ctx.stroke();
+  ctx.setLineDash([]);
+}
+function car(x,y,color,player=false){
+  ctx.save();ctx.translate(x,y);
+  ctx.fillStyle='#111';ctx.fillRect(-7,18,10,30);ctx.fillRect(57,18,10,30);
+  ctx.fillStyle=color;ctx.beginPath();ctx.roundRect(0,0,60,82,12);ctx.fill();
+  ctx.fillStyle=player?'#bff6ff':'#ffd8d8';ctx.fillRect(10,10,40,22);
+  ctx.fillStyle='#111';ctx.fillRect(15,14,30,14);
+  ctx.fillStyle='#ffdf4d';ctx.fillRect(7,2,10,5);ctx.fillRect(43,2,10,5);
+  ctx.restore();
+}
+function reset(){
+  score=0;speed=6;lane=1;carX=210;targets=[];spawn=0;
+  document.getElementById('score').textContent='Score: 0';
+}
+function start(){
+  reset();running=true;document.getElementById('overlay').classList.add('hidden');
+  last=performance.now();requestAnimationFrame(loop);
+}
+function gameOver(){
+  running=false;
+  if(score>best){best=score;localStorage.turboBest=best}
+  document.getElementById('best').textContent='Best: '+best;
+  document.getElementById('overlay').innerHTML='<h2>Game Over</h2><p>Score: '+score+' • Best: '+best+'</p><button id="restart">↻ PLAY AGAIN</button>';
+  document.getElementById('overlay').classList.remove('hidden');
+  document.getElementById('restart').onclick=start;
+}
+function move(d){if(!running)return;lane=Math.max(0,Math.min(2,lane+d))}
+function loop(t){
+  if(!running)return;
+  const dt=Math.min(32,t-last);last=t;
+  road();
+  const targetX=[120,210,300][lane];
+  carX+=(targetX-carX)*0.16;
+  spawn+=dt;
+  if(spawn>650-Math.min(300,score*5)){
+    spawn=0;
+    const l=Math.floor(Math.random()*3);
+    targets.push({x:[120,210,300][l],y:-100,l, color:['#e33','#f1b51d','#9b59ff'][Math.floor(Math.random()*3)]});
+  }
+  for(let i=targets.length-1;i>=0;i--){
+    const o=targets[i];o.y+=speed*dt/16;
+    car(o.x,o.y,o.color);
+    if(o.y>H+100){targets.splice(i,1);score++;speed=Math.min(13,6+score*.04);continue}
+    if(o.l===lane && o.y+72>585 && o.y<665){gameOver();return}
+  }
+  car(carX,585,'#00bfff',true);
+  document.getElementById('score').textContent='Score: '+score;
+  requestAnimationFrame(loop);
+}
+document.getElementById('start').onclick=start;
+document.getElementById('left').onpointerdown=()=>move(-1);
+document.getElementById('right').onpointerdown=()=>move(1);
+addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key.toLowerCase()==='a')move(-1);if(e.key==='ArrowRight'||e.key.toLowerCase()==='d')move(1);if(e.key===' '&&!running)start()});
+road();car(210,585,'#00bfff',true);
+</script>
+</body>
+</html>

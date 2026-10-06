@@ -13,7 +13,6 @@
   --blue2:#0077ff;
   --dark:#05070d;
   --card:#101522;
-  --card2:#151c2d;
   --text:#ffffff;
   --muted:#9aa6bd;
 }
@@ -100,8 +99,7 @@ header{
 .section-head a{color:var(--blue);text-decoration:none;font-size:14px}
 .feat-card{
   background:var(--card);border:1px solid #1e2a42;border-radius:20px;
-  padding:25px;display:flex;gap:25px;align-items:center;
-  flex-wrap:wrap;
+  padding:25px;display:flex;gap:25px;align-items:center;flex-wrap:wrap;
 }
 .feat-info{flex:1;min-width:260px}
 .feat-info h3{font-size:28px;margin-bottom:8px}
@@ -112,7 +110,7 @@ header{
   border:1px solid #24314a;
 }
 
-/* ===== POKI STYLE GAME GRID ===== */
+/* GAME GRID */
 .games-section{
   max-width:1250px;margin:35px auto 60px;padding:0 20px;
 }
@@ -182,7 +180,7 @@ footer{
 footer .logo{font-weight:900;color:white;margin-bottom:6px}
 footer span{color:var(--blue)}
 
-/* MODAL for simple games */
+/* MODAL */
 .modal{
   position:fixed;inset:0;background:rgba(0,0,0,.85);
   display:none;align-items:center;justify-content:center;z-index:2000;
@@ -214,7 +212,7 @@ footer span{color:var(--blue)}
 <header>
   <div class="nav">
     <a href="#" class="brand">
-      <img src="https://parvezgames.github.io/logo.png" alt="logo" onerror="this.style.display='none'">
+      <img src="logo.png" alt="logo" onerror="this.style.display='none'">
       PARVEZ <span>GAMES</span>
     </a>
     <div class="search">
@@ -256,7 +254,7 @@ footer span{color:var(--blue)}
   </div>
 </section>
 
-<!-- POPULAR GAMES - POKI STYLE -->
+<!-- POPULAR GAMES -->
 <section class="games-section" id="popular">
   <div class="section-head">
     <h2>🔥 Popular Games</h2>
@@ -265,7 +263,7 @@ footer span{color:var(--blue)}
 
   <div class="game-grid" id="gameGrid">
 
-    <!-- 1 Turbo Racer -->
+    <!-- Turbo Racer -->
     <div class="game-card" data-title="Turbo Racer" data-category="racing" onclick="location.href='turbo-racer.html'">
       <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
       <div class="thumb-wrap">
@@ -279,7 +277,49 @@ footer span{color:var(--blue)}
       </div>
     </div>
 
-    <!-- 2 Space Jump -->
+    <!-- 2048 -->
+    <div class="game-card" data-title="2048 Master" data-category="puzzle" onclick="location.href='2048.html'">
+      <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
+      <div class="thumb-wrap">
+        <div>🔢</div>
+        <div class="play-overlay"><div class="play-circle">▶</div></div>
+      </div>
+      <div class="game-info">
+        <h3>2048 Master</h3>
+        <p>Puzzle • Casual</p>
+        <div class="rating">★★★★★</div>
+      </div>
+    </div>
+
+    <!-- Snake -->
+    <div class="game-card" data-title="Snake" data-category="arcade" onclick="location.href='snake.html'">
+      <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
+      <div class="thumb-wrap">
+        <div>🐍</div>
+        <div class="play-overlay"><div class="play-circle">▶</div></div>
+      </div>
+      <div class="game-info">
+        <h3>Snake</h3>
+        <p>Arcade • Classic</p>
+        <div class="rating">★★★★★</div>
+      </div>
+    </div>
+
+    <!-- Flappy -->
+    <div class="game-card" data-title="Flappy Bird" data-category="arcade" onclick="location.href='flappy.html'">
+      <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
+      <div class="thumb-wrap">
+        <div>🐦</div>
+        <div class="play-overlay"><div class="play-circle">▶</div></div>
+      </div>
+      <div class="game-info">
+        <h3>Flappy Bird</h3>
+        <p>Arcade • Casual</p>
+        <div class="rating">★★★★☆</div>
+      </div>
+    </div>
+
+    <!-- Space Jump -->
     <div class="game-card" data-title="Space Jump" data-category="arcade" onclick="openGame('Space Jump','🚀','arcade')">
       <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
       <div class="thumb-wrap">
@@ -293,7 +333,7 @@ footer span{color:var(--blue)}
       </div>
     </div>
 
-    <!-- 3 Block Puzzle -->
+    <!-- Block Puzzle -->
     <div class="game-card" data-title="Block Puzzle" data-category="puzzle" onclick="openGame('Block Puzzle','🧩','puzzle')">
       <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
       <div class="thumb-wrap">
@@ -307,7 +347,7 @@ footer span{color:var(--blue)}
       </div>
     </div>
 
-    <!-- 4 Football Star -->
+    <!-- Football Star -->
     <div class="game-card" data-title="Football Star" data-category="sports" onclick="openGame('Football Star','⚽','sports')">
       <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
       <div class="thumb-wrap">
@@ -321,7 +361,7 @@ footer span{color:var(--blue)}
       </div>
     </div>
 
-    <!-- 5 Ninja Dash -->
+    <!-- Ninja Dash -->
     <div class="game-card" data-title="Ninja Dash" data-category="action" onclick="openGame('Ninja Dash','🥷','action')">
       <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
       <div class="thumb-wrap">
@@ -335,7 +375,7 @@ footer span{color:var(--blue)}
       </div>
     </div>
 
-    <!-- 6 Fruit Catch -->
+    <!-- Fruit Catch -->
     <div class="game-card" data-title="Fruit Catch" data-category="casual" onclick="openGame('Fruit Catch','🍎','casual')">
       <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
       <div class="thumb-wrap">
@@ -349,7 +389,7 @@ footer span{color:var(--blue)}
       </div>
     </div>
 
-    <!-- 7 Space Battle -->
+    <!-- Space Battle -->
     <div class="game-card" data-title="Space Battle" data-category="action" onclick="openGame('Space Battle','👾','action')">
       <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
       <div class="thumb-wrap">
@@ -359,48 +399,6 @@ footer span{color:var(--blue)}
       <div class="game-info">
         <h3>Space Battle</h3>
         <p>Action • Arcade</p>
-        <div class="rating">★★★★★</div>
-      </div>
-    </div>
-
-    <!-- 8 Pixel Run -->
-    <div class="game-card" data-title="Pixel Run" data-category="arcade" onclick="openGame('Pixel Run','🏃','arcade')">
-      <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
-      <div class="thumb-wrap">
-        <div>🏃</div>
-        <div class="play-overlay"><div class="play-circle">▶</div></div>
-      </div>
-      <div class="game-info">
-        <h3>Pixel Run</h3>
-        <p>Arcade • Action</p>
-        <div class="rating">★★★★☆</div>
-      </div>
-    </div>
-
-    <!-- 9 Street Drive -->
-    <div class="game-card" data-title="Street Drive" data-category="racing" onclick="openGame('Street Drive','🚗','racing')">
-      <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
-      <div class="thumb-wrap">
-        <div>🚗</div>
-        <div class="play-overlay"><div class="play-circle">▶</div></div>
-      </div>
-      <div class="game-info">
-        <h3>Street Drive</h3>
-        <p>Racing • Casual</p>
-        <div class="rating">★★★★★</div>
-      </div>
-    </div>
-
-    <!-- 10 2048 Master -->
-    <div class="game-card" data-title="2048 Master" data-category="puzzle" onclick="openGame('2048 Master','🔢','puzzle')">
-      <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
-      <div class="thumb-wrap">
-        <div>🔢</div>
-        <div class="play-overlay"><div class="play-circle">▶</div></div>
-      </div>
-      <div class="game-info">
-        <h3>2048 Master</h3>
-        <p>Puzzle • Casual</p>
         <div class="rating">★★★★★</div>
       </div>
     </div>
@@ -454,12 +452,9 @@ function openGame(title, emoji, type){
   const area = document.getElementById("gameArea");
   area.innerHTML = "";
 
-  if(type === "puzzle" && title.includes("2048")){
-    start2048(area);
-  } else if(type === "racing"){
+  if(type === "racing"){
     startSimpleRacer(area);
   } else {
-    // generic clicker style game
     startClicker(area, emoji);
   }
   document.getElementById("gameModal").classList.add("active");
@@ -515,11 +510,6 @@ function startSimpleRacer(area){
     raceScore++;
     document.getElementById("raceScore").textContent = "Score: " + raceScore;
   };
-}
-
-function start2048(area){
-  area.innerHTML = `<p style="color:#9aa6bd;margin-bottom:10px">Simple 2048 coming soon. Use Turbo Racer for now!</p>
-  <a href="turbo-racer.html" style="color:var(--blue)">Play Turbo Racer →</a>`;
 }
 
 filterGames();

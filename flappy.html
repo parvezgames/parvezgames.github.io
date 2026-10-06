@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Flappy - Parvez Games</title>
+<style>
+  body{margin:0;background:#0f0f13;display:flex;flex-direction:column;align-items:center;color:white;font-family:Arial;padding:20px}
+  canvas{background:#87CEEB;border-radius:12px;border:2px solid #00bfff}
+  button{margin-top:15px;padding:12px 25px;border:none;border-radius:25px;background:#00bfff;color:black;font-weight:bold;cursor:pointer}
+</style>
+</head>
+<body>
+  <h1>Flappy Bird</h1>
+  <canvas id="c" width="320" height="480"></canvas>
+  <button onclick="start()">Start / Restart</button>
+  <p>Click or Space to jump</p>
+
+<script>
+const canvas=document.getElementById("c"),ctx=canvas.getContext("2d");
+let bird,pipes,score,grav,alive,loop;
+
+function start(){
+  bird={x:60,y:200,vy:0};
+  pipes=[];
+  score=0;grav=0.4;alive=true;
+  clearInterval(loop);
+  loop=setInterval(update,20);
+  for(let i=0;i<3;i++) addPipe(300+i*180);
+}
+
+function addPipe(x){
+  const gap=120, top=Math.random()*200+40;
+  pipes.push({x,top,bottom:top+gap});
+}
+
+function update(){
+  if(!alive) return;
+  bird.vy+=grav; bird.y+=bird.vy;
+  if(bird.y>460||bird.y<0) die();
+
+  pipes.forEach(p=>{
+    p.x-=2.5;
+    if(p.x+50<0){ p.x=320; p.top=Math.random()*200+40; p.bottom=p.top+120; score++; }
+    if(bird.x+20>p.x && bird.x<p.x+50 && (bird.y<p.top||bird.y+20>p.bottom)) die();
+  });
+
+  ctx.fillStyle="#87CEEB"; ctx.fillRect(0,0,320,480);
+  ctx.fillStyle="#FFD700"; ctx.beginPath(); ctx.arc(bird.x+10,bird.y+10,12,0,Math.PI*2); ctx.fill();
+  ctx.fillStyle="#228B22";
+  pipes.forEach(p=>{
+    ctx.fillRect(p.x,0,50,p.top);
+    ctx.fillRect(p.x,p.bottom,50,480-p.bottom);
+  });
+  ctx.fillStyle="white"; ctx.font="24px Arial"; ctx.fillText(score,150,40);
+}
+
+function die(){ alive=false; clearInterval(loop); alert("Score: "+score); }
+document.addEventListener("keydown",e=>{ if(e.code==="Space") bird.vy=-7; });
+canvas.onclick=()=>bird.vy=-7;
+start();
+</script>
+</body>
+</html>

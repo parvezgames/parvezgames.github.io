@@ -7,12 +7,7 @@
 <meta name="description" content="PARVEZ GAMES - Play free online games anytime. Action, Racing, Sports, Puzzle and Arcade games.">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
 :root{
   --blue:#00bfff;
   --blue2:#0077ff;
@@ -22,7 +17,6 @@
   --text:#ffffff;
   --muted:#9aa6bd;
 }
-
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:
@@ -35,1167 +29,500 @@ body{
 
 /* HEADER */
 header{
-  position:sticky;
-  top:0;
-  z-index:1000;
+  position:sticky;top:0;z-index:1000;
   background:rgba(5,7,13,.94);
   backdrop-filter:blur(15px);
   border-bottom:1px solid rgba(0,191,255,.18);
 }
-
 .nav{
-  max-width:1250px;
-  margin:auto;
-  padding:12px 20px;
-  display:flex;
-  align-items:center;
-  gap:20px;
+  max-width:1250px;margin:auto;padding:12px 20px;
+  display:flex;align-items:center;gap:20px;
 }
-
 .brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  text-decoration:none;
-  color:white;
-  font-weight:900;
-  font-size:20px;
-  white-space:nowrap;
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;color:white;font-weight:900;font-size:20px;white-space:nowrap;
 }
-
-.brand img{
-  width:52px;
-  height:52px;
-  object-fit:contain;
-  border-radius:12px;
-}
-
-.brand span{
-  color:var(--blue);
-}
-
-.search{
-  flex:1;
-  position:relative;
-}
-
+.brand img{width:52px;height:52px;object-fit:contain;border-radius:12px}
+.brand span{color:var(--blue)}
+.search{flex:1;position:relative}
 .search input{
-  width:100%;
-  padding:13px 18px;
-  border-radius:30px;
-  border:1px solid #263248;
-  background:#0c111c;
-  color:white;
-  outline:none;
-  font-size:15px;
+  width:100%;padding:13px 18px;border-radius:30px;
+  border:1px solid #263248;background:#0c111c;color:white;outline:none;font-size:15px;
 }
-
-.search input:focus{
-  border-color:var(--blue);
-  box-shadow:0 0 15px rgba(0,191,255,.15);
-}
-
+.search input:focus{border-color:var(--blue);box-shadow:0 0 15px rgba(0,191,255,.15)}
 .nav-btn{
-  border:0;
-  background:linear-gradient(135deg,var(--blue),var(--blue2));
-  color:white;
-  padding:12px 17px;
-  border-radius:25px;
-  font-weight:bold;
-  cursor:pointer;
+  border:0;background:linear-gradient(135deg,var(--blue),var(--blue2));
+  color:white;padding:12px 17px;border-radius:25px;font-weight:bold;cursor:pointer;
 }
 
 /* HERO */
 .hero{
-  max-width:1250px;
-  margin:25px auto 10px;
-  padding:55px 25px;
-  border-radius:25px;
-  text-align:center;
-  background:
-    linear-gradient(135deg,rgba(0,191,255,.16),rgba(0,119,255,.08)),
-    #0c111c;
+  max-width:1250px;margin:25px auto 10px;padding:55px 25px;
+  border-radius:25px;text-align:center;
+  background:linear-gradient(135deg,rgba(0,191,255,.16),rgba(0,119,255,.08)),#0c111c;
   border:1px solid rgba(0,191,255,.2);
   box-shadow:0 15px 50px rgba(0,0,0,.25);
 }
-
-.hero h1{
-  font-size:clamp(38px,6vw,70px);
-  font-weight:900;
-  letter-spacing:-2px;
-}
-
-.hero h1 span{
-  color:var(--blue);
-}
-
-.hero p{
-  margin:15px 0 25px;
-  color:var(--muted);
-  font-size:17px;
-}
-
-.play-btn{
-  display:inline-block;
-  border:0;
-  padding:14px 28px;
-  border-radius:30px;
-  color:white;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
+.hero h1{font-size:clamp(38px,6vw,70px);font-weight:900;letter-spacing:-2px}
+.hero h1 span{color:var(--blue)}
+.hero p{margin:15px 0 25px;color:var(--muted);font-size:17px}
+.play-main{
+  display:inline-flex;align-items:center;gap:8px;
   background:linear-gradient(135deg,var(--blue),var(--blue2));
-  box-shadow:0 8px 25px rgba(0,119,255,.3);
+  color:white;padding:14px 28px;border-radius:30px;
+  font-weight:bold;font-size:16px;text-decoration:none;border:none;cursor:pointer;
 }
 
 /* CATEGORIES */
-.categories{
-  max-width:1250px;
-  margin:25px auto;
-  padding:0 20px;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
+.cats{
+  max-width:1250px;margin:20px auto;padding:0 20px;
+  display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;
 }
-
-.category{
-  padding:10px 17px;
-  border:1px solid #263248;
-  border-radius:25px;
-  background:#0c111c;
-  color:#c7d0df;
-  cursor:pointer;
-  transition:.2s;
+.cats::-webkit-scrollbar{display:none}
+.cat{
+  border:1px solid #263248;background:#0c111c;color:#cfd8e8;
+  padding:10px 18px;border-radius:25px;cursor:pointer;white-space:nowrap;font-size:14px;
+  transition:.25s;
 }
-
-.category:hover,
-.category.active{
-  background:var(--blue);
-  color:white;
-  border-color:var(--blue);
-}
-
-/* SECTIONS */
-.section{
-  max-width:1250px;
-  margin:35px auto;
-  padding:0 20px;
-}
-
-.section-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:18px;
-}
-
-.section-title h2{
-  font-size:25px;
-}
-
-.section-title span{
-  color:var(--blue);
-  font-size:14px;
+.cat:hover,.cat.active{
+  background:linear-gradient(135deg,var(--blue),var(--blue2));
+  color:white;border-color:transparent;
 }
 
 /* FEATURED */
 .featured{
-  background:linear-gradient(135deg,#111a2c,#0b111c);
-  border:1px solid #1c2a40;
-  border-radius:22px;
-  padding:25px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:25px;
-  overflow:hidden;
+  max-width:1250px;margin:30px auto;padding:0 20px;
+}
+.section-head{
+  display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;
+}
+.section-head h2{font-size:22px}
+.section-head a{color:var(--blue);text-decoration:none;font-size:14px}
+.feat-card{
+  background:var(--card);border:1px solid #1e2a42;border-radius:20px;
+  padding:25px;display:flex;gap:25px;align-items:center;
+  flex-wrap:wrap;
+}
+.feat-info{flex:1;min-width:260px}
+.feat-info h3{font-size:28px;margin-bottom:8px}
+.feat-info p{color:var(--muted);margin-bottom:18px;line-height:1.5}
+.feat-thumb{
+  width:180px;height:140px;background:#0c111c;border-radius:16px;
+  display:flex;align-items:center;justify-content:center;font-size:70px;
+  border:1px solid #24314a;
 }
 
-.featured-text{
-  flex:1;
+/* ===== POKI STYLE GAME GRID ===== */
+.games-section{
+  max-width:1250px;margin:35px auto 60px;padding:0 20px;
 }
-
-.featured h2{
-  font-size:32px;
-  margin-bottom:10px;
-}
-
-.featured p{
-  color:var(--muted);
-  line-height:1.6;
-  margin-bottom:18px;
-}
-
-.featured-art{
-  width:250px;
-  height:150px;
-  border-radius:18px;
-  background:
-    radial-gradient(circle,#00bfff55,transparent 50%),
-    linear-gradient(135deg,#081525,#122746);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:65px;
-  border:1px solid #203450;
-}
-
-/* GAME GRID */
 .game-grid{
   display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:16px;
+  grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+  gap:18px;
 }
-
 .game-card{
-  background:linear-gradient(145deg,var(--card),var(--card2));
-  border:1px solid #1d293d;
-  border-radius:17px;
+  background:var(--card);
+  border-radius:16px;
   overflow:hidden;
   cursor:pointer;
-  transition:.25s;
+  transition:all .28s ease;
+  border:1px solid #1c273c;
   position:relative;
 }
-
 .game-card:hover{
-  transform:translateY(-6px);
-  border-color:var(--blue);
-  box-shadow:0 12px 30px rgba(0,191,255,.12);
+  transform:translateY(-7px);
+  box-shadow:0 14px 30px rgba(0,191,255,.18);
+  border-color:rgba(0,191,255,.4);
 }
-
-.thumb{
-  height:145px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:55px;
-  background:
-    radial-gradient(circle at center,rgba(0,191,255,.18),transparent 60%),
-    #0b101b;
-}
-
-.game-info{
-  padding:13px;
-}
-
-.game-info h3{
-  font-size:16px;
-  margin-bottom:6px;
-}
-
-.game-info p{
-  color:var(--muted);
-  font-size:12px;
-}
-
-.rating{
-  margin-top:9px;
-  color:#ffd43b;
-  font-size:13px;
-}
-
-.favorite{
-  position:absolute;
-  top:9px;
-  right:9px;
-  width:34px;
-  height:34px;
-  border:0;
-  border-radius:50%;
-  background:rgba(0,0,0,.6);
-  color:white;
-  cursor:pointer;
-  font-size:17px;
-}
-
-.favorite.active{
-  color:#ff4d73;
-}
-
-/* NO RESULTS */
-.no-results{
-  display:none;
-  text-align:center;
-  padding:50px 20px;
-  color:var(--muted);
-}
-
-/* MODAL */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:2000;
-  background:rgba(0,0,0,.82);
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-
-.modal.show{
-  display:flex;
-}
-
-.modal-box{
-  width:min(600px,100%);
-  background:#0d1421;
-  border:1px solid #26354c;
-  border-radius:22px;
-  padding:25px;
+.thumb-wrap{
   position:relative;
-  text-align:center;
-}
-
-.close{
-  position:absolute;
-  right:15px;
-  top:12px;
-  width:35px;
-  height:35px;
-  border:0;
-  border-radius:50%;
-  background:#1a2434;
-  color:white;
-  cursor:pointer;
-  font-size:20px;
-}
-
-.modal-icon{
-  font-size:75px;
-  margin:20px;
-}
-
-.modal-box h2{
-  font-size:28px;
-  margin-bottom:8px;
-}
-
-.modal-box p{
-  color:var(--muted);
-  margin-bottom:22px;
-}
-
-#gameArea{
-  margin-top:20px;
-  min-height:150px;
+  width:100%;
+  aspect-ratio:1/1;
+  background:#0c111c;
   display:flex;
   align-items:center;
   justify-content:center;
+  font-size:64px;
+  overflow:hidden;
 }
+.play-overlay{
+  position:absolute;inset:0;
+  background:rgba(0,0,0,.55);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:.3s;
+}
+.game-card:hover .play-overlay{opacity:1}
+.play-circle{
+  width:58px;height:58px;border-radius:50%;
+  background:var(--blue);color:#000;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;font-weight:bold;
+  box-shadow:0 6px 18px rgba(0,191,255,.45);
+}
+.favorite{
+  position:absolute;top:10px;right:10px;
+  background:rgba(0,0,0,.45);border:none;color:white;
+  width:32px;height:32px;border-radius:50%;
+  cursor:pointer;font-size:15px;z-index:2;
+}
+.game-info{padding:12px 13px 14px}
+.game-info h3{
+  font-size:15px;font-weight:700;margin-bottom:3px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.game-info p{font-size:12px;color:var(--muted);margin-bottom:4px}
+.rating{color:#ffc107;font-size:13px;letter-spacing:1px}
 
 /* FOOTER */
 footer{
-  margin-top:60px;
-  border-top:1px solid #192235;
-  background:#070a11;
-  padding:35px 20px;
+  border-top:1px solid #1a2235;
+  padding:25px 20px;text-align:center;color:#6b7890;font-size:14px;
+}
+footer .logo{font-weight:900;color:white;margin-bottom:6px}
+footer span{color:var(--blue)}
+
+/* MODAL for simple games */
+.modal{
+  position:fixed;inset:0;background:rgba(0,0,0,.85);
+  display:none;align-items:center;justify-content:center;z-index:2000;
+  padding:20px;
+}
+.modal.active{display:flex}
+.modal-box{
+  background:var(--card);border-radius:20px;padding:25px;
+  width:100%;max-width:420px;text-align:center;
+  border:1px solid #24314a;
+}
+.modal-box h2{margin-bottom:15px}
+#gameArea{min-height:220px;margin:15px 0}
+.close-btn{
+  margin-top:15px;background:#1e2a42;border:none;color:white;
+  padding:10px 22px;border-radius:20px;cursor:pointer;
 }
 
-.footer-inner{
-  max-width:1250px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-}
-
-.footer-brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:bold;
-}
-
-.footer-brand img{
-  width:40px;
-  height:40px;
-  object-fit:contain;
-  border-radius:8px;
-}
-
-footer p{
-  color:var(--muted);
-  font-size:13px;
-}
-
-/* RESPONSIVE */
-@media(max-width:1050px){
-  .game-grid{
-    grid-template-columns:repeat(4,1fr);
-  }
-}
-
-@media(max-width:800px){
-  .game-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .featured{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .featured-art{
-    width:100%;
-  }
-}
-
-@media(max-width:600px){
-  .nav{
-    flex-wrap:wrap;
-  }
-
-  .brand{
-    font-size:17px;
-  }
-
-  .brand img{
-    width:44px;
-    height:44px;
-  }
-
-  .search{
-    order:3;
-    flex-basis:100%;
-  }
-
-  .hero{
-    margin:15px;
-    padding:40px 18px;
-  }
-
-  .section{
-    padding:0 12px;
-  }
-
-  .game-grid{
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-  }
-
-  .thumb{
-    height:115px;
-    font-size:43px;
-  }
-
-  .game-info h3{
-    font-size:14px;
-  }
-
-  .footer-inner{
-    flex-direction:column;
-    text-align:center;
-  }
-}
-
-@media(max-width:380px){
-  .game-grid{
-    grid-template-columns:1fr 1fr;
-  }
+@media(max-width:700px){
+  .nav{gap:10px}
+  .search{display:none}
+  .feat-card{flex-direction:column;text-align:center}
+  .game-grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:14px}
 }
 </style>
 </head>
-
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="nav">
-
-    <a class="brand" href="#">
-      <img src="logo.png" alt="PARVEZ GAMES Logo">
-      <div>PARVEZ <span>GAMES</span></div>
+    <a href="#" class="brand">
+      <img src="https://parvezgames.github.io/logo.png" alt="logo" onerror="this.style.display='none'">
+      PARVEZ <span>GAMES</span>
     </a>
-
     <div class="search">
-      <input id="searchInput" type="text" placeholder="🔍 Search games...">
+      <input type="text" id="searchInput" placeholder="Search games..." oninput="filterGames()">
     </div>
-
-    <button class="nav-btn" onclick="showAll()">🎮 Games</button>
-
+    <button class="nav-btn">🎮 Games</button>
   </div>
 </header>
 
-
-<!-- HERO -->
 <section class="hero">
   <h1>PLAY. <span>HAVE FUN.</span></h1>
-
-  <p>
-    Welcome to PARVEZ GAMES — play free online games anytime.
-  </p>
-
-  <button class="play-btn" onclick="scrollToGames()">
-    ▶ PLAY NOW
-  </button>
+  <p>Welcome to PARVEZ GAMES — play free online games anytime.</p>
+  <button class="play-main" onclick="document.getElementById('popular').scrollIntoView({behavior:'smooth'})">▶ PLAY NOW</button>
 </section>
 
-
-<!-- CATEGORIES -->
-<div class="categories">
-
-  <button class="category active" data-category="all">
-    All Games
-  </button>
-
-  <button class="category" data-category="action">
-    ⚔️ Action
-  </button>
-
-  <button class="category" data-category="racing">
-    🏎️ Racing
-  </button>
-
-  <button class="category" data-category="sports">
-    ⚽ Sports
-  </button>
-
-  <button class="category" data-category="puzzle">
-    🧩 Puzzle
-  </button>
-
-  <button class="category" data-category="arcade">
-    👾 Arcade
-  </button>
-
-  <button class="category" data-category="casual">
-    🎯 Casual
-  </button>
-
+<div class="cats" id="cats">
+  <button class="cat active" data-cat="all" onclick="setCategory(this)">All Games</button>
+  <button class="cat" data-cat="action" onclick="setCategory(this)">⚔️ Action</button>
+  <button class="cat" data-cat="racing" onclick="setCategory(this)">🏎️ Racing</button>
+  <button class="cat" data-cat="sports" onclick="setCategory(this)">⚽ Sports</button>
+  <button class="cat" data-cat="puzzle" onclick="setCategory(this)">🧩 Puzzle</button>
+  <button class="cat" data-cat="arcade" onclick="setCategory(this)">👾 Arcade</button>
+  <button class="cat" data-cat="casual" onclick="setCategory(this)">🎯 Casual</button>
 </div>
 
-
 <!-- FEATURED -->
-<section class="section">
-
-  <div class="section-title">
+<section class="featured">
+  <div class="section-head">
     <h2>🔥 Featured Game</h2>
-    <span>PLAY NOW</span>
+    <a href="turbo-racer.html">PLAY NOW →</a>
   </div>
-
-  <div class="featured">
-
-    <div class="featured-text">
-      <h2>🏎️ Turbo Racer</h2>
-
-      <p>
-        Get behind the wheel and test your speed.
-        Dodge obstacles and survive as long as possible!
-      </p>
-
-      <button class="play-btn" onclick="openGame('Turbo Racer','🏎️','racing')">
-        PLAY GAME
-      </button>
+  <div class="feat-card">
+    <div class="feat-info">
+      <h3>🏎️ Turbo Racer</h3>
+      <p>Get behind the wheel and test your speed. Dodge obstacles and survive as long as possible!</p>
+      <a href="turbo-racer.html" class="play-main" style="display:inline-flex">▶ PLAY GAME</a>
     </div>
-
-    <div class="featured-art">
-      🏎️
-    </div>
-
+    <div class="feat-thumb">🏎️</div>
   </div>
-
 </section>
 
-
-<!-- POPULAR GAMES -->
-<section class="section" id="games">
-
-  <div class="section-title">
+<!-- POPULAR GAMES - POKI STYLE -->
+<section class="games-section" id="popular">
+  <div class="section-head">
     <h2>🔥 Popular Games</h2>
-    <span>10 GAMES</span>
+    <span style="color:var(--blue);font-size:14px">10 GAMES</span>
   </div>
 
   <div class="game-grid" id="gameGrid">
 
-
-    <!-- GAME 1 -->
-    <div class="game-card" data-title="Turbo Racer" data-category="racing"
-         onclick="location.href='turbo-racer.html'"
-
+    <!-- 1 Turbo Racer -->
+    <div class="game-card" data-title="Turbo Racer" data-category="racing" onclick="location.href='turbo-racer.html'">
       <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
-
-      <div class="thumb">🏎️</div>
-
+      <div class="thumb-wrap">
+        <div>🏎️</div>
+        <div class="play-overlay"><div class="play-circle">▶</div></div>
+      </div>
       <div class="game-info">
         <h3>Turbo Racer</h3>
         <p>Racing • Arcade</p>
         <div class="rating">★★★★★</div>
       </div>
-
     </div>
 
-
-    <!-- GAME 2 -->
-    <div class="game-card" data-title="Space Jump" data-category="arcade"
-         onclick="openGame('Space Jump','🚀','arcade')">
-
+    <!-- 2 Space Jump -->
+    <div class="game-card" data-title="Space Jump" data-category="arcade" onclick="openGame('Space Jump','🚀','arcade')">
       <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
-
-      <div class="thumb">🚀</div>
-
+      <div class="thumb-wrap">
+        <div>🚀</div>
+        <div class="play-overlay"><div class="play-circle">▶</div></div>
+      </div>
       <div class="game-info">
         <h3>Space Jump</h3>
         <p>Arcade • Casual</p>
         <div class="rating">★★★★☆</div>
       </div>
-
     </div>
 
-
-    <!-- GAME 3 -->
-    <div class="game-card" data-title="Block Puzzle" data-category="puzzle"
-         onclick="openGame('Block Puzzle','🧩','puzzle')">
-
+    <!-- 3 Block Puzzle -->
+    <div class="game-card" data-title="Block Puzzle" data-category="puzzle" onclick="openGame('Block Puzzle','🧩','puzzle')">
       <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
-
-      <div class="thumb">🧩</div>
-
+      <div class="thumb-wrap">
+        <div>🧩</div>
+        <div class="play-overlay"><div class="play-circle">▶</div></div>
+      </div>
       <div class="game-info">
         <h3>Block Puzzle</h3>
         <p>Puzzle • Casual</p>
         <div class="rating">★★★★★</div>
       </div>
-
     </div>
 
-
-    <!-- GAME 4 -->
-    <div class="game-card" data-title="Football Star" data-category="sports"
-         onclick="openGame('Football Star','⚽','sports')">
-
+    <!-- 4 Football Star -->
+    <div class="game-card" data-title="Football Star" data-category="sports" onclick="openGame('Football Star','⚽','sports')">
       <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
-
-      <div class="thumb">⚽</div>
-
+      <div class="thumb-wrap">
+        <div>⚽</div>
+        <div class="play-overlay"><div class="play-circle">▶</div></div>
+      </div>
       <div class="game-info">
         <h3>Football Star</h3>
         <p>Sports • Arcade</p>
         <div class="rating">★★★★★</div>
       </div>
-
     </div>
 
-
-    <!-- GAME 5 -->
-    <div class="game-card" data-title="Ninja Dash" data-category="action"
-         onclick="openGame('Ninja Dash','🥷','action')">
-
+    <!-- 5 Ninja Dash -->
+    <div class="game-card" data-title="Ninja Dash" data-category="action" onclick="openGame('Ninja Dash','🥷','action')">
       <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
-
-      <div class="thumb">🥷</div>
-
+      <div class="thumb-wrap">
+        <div>🥷</div>
+        <div class="play-overlay"><div class="play-circle">▶</div></div>
+      </div>
       <div class="game-info">
         <h3>Ninja Dash</h3>
         <p>Action • Arcade</p>
         <div class="rating">★★★★☆</div>
       </div>
-
     </div>
 
-
-    <!-- GAME 6 -->
-    <div class="game-card" data-title="Fruit Catch" data-category="casual"
-         onclick="openGame('Fruit Catch','🍎','casual')">
-
+    <!-- 6 Fruit Catch -->
+    <div class="game-card" data-title="Fruit Catch" data-category="casual" onclick="openGame('Fruit Catch','🍎','casual')">
       <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
-
-      <div class="thumb">🍎</div>
-
+      <div class="thumb-wrap">
+        <div>🍎</div>
+        <div class="play-overlay"><div class="play-circle">▶</div></div>
+      </div>
       <div class="game-info">
         <h3>Fruit Catch</h3>
         <p>Casual • Arcade</p>
         <div class="rating">★★★★☆</div>
       </div>
-
     </div>
 
-
-    <!-- GAME 7 -->
-    <div class="game-card" data-title="Space Battle" data-category="action"
-         onclick="openGame('Space Battle','👾','action')">
-
+    <!-- 7 Space Battle -->
+    <div class="game-card" data-title="Space Battle" data-category="action" onclick="openGame('Space Battle','👾','action')">
       <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
-
-      <div class="thumb">👾</div>
-
+      <div class="thumb-wrap">
+        <div>👾</div>
+        <div class="play-overlay"><div class="play-circle">▶</div></div>
+      </div>
       <div class="game-info">
         <h3>Space Battle</h3>
         <p>Action • Arcade</p>
         <div class="rating">★★★★★</div>
       </div>
-
     </div>
 
-
-    <!-- GAME 8 -->
-    <div class="game-card" data-title="Pixel Run" data-category="arcade"
-         onclick="openGame('Pixel Run','🏃','arcade')">
-
+    <!-- 8 Pixel Run -->
+    <div class="game-card" data-title="Pixel Run" data-category="arcade" onclick="openGame('Pixel Run','🏃','arcade')">
       <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
-
-      <div class="thumb">🏃</div>
-
+      <div class="thumb-wrap">
+        <div>🏃</div>
+        <div class="play-overlay"><div class="play-circle">▶</div></div>
+      </div>
       <div class="game-info">
         <h3>Pixel Run</h3>
         <p>Arcade • Action</p>
         <div class="rating">★★★★☆</div>
       </div>
-
     </div>
 
-
-    <!-- GAME 9 -->
-    <div class="game-card" data-title="Street Drive" data-category="racing"
-         onclick="openGame('Street Drive','🚗','racing')">
-
+    <!-- 9 Street Drive -->
+    <div class="game-card" data-title="Street Drive" data-category="racing" onclick="openGame('Street Drive','🚗','racing')">
       <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
-
-      <div class="thumb">🚗</div>
-
+      <div class="thumb-wrap">
+        <div>🚗</div>
+        <div class="play-overlay"><div class="play-circle">▶</div></div>
+      </div>
       <div class="game-info">
         <h3>Street Drive</h3>
         <p>Racing • Casual</p>
         <div class="rating">★★★★★</div>
       </div>
-
     </div>
 
-
-    <!-- GAME 10 -->
-    <div class="game-card" data-title="2048 Master" data-category="puzzle"
-         onclick="openGame('2048 Master','🔢','puzzle')">
-
+    <!-- 10 2048 Master -->
+    <div class="game-card" data-title="2048 Master" data-category="puzzle" onclick="openGame('2048 Master','🔢','puzzle')">
       <button class="favorite" onclick="favoriteGame(event,this)">♡</button>
-
-      <div class="thumb">🔢</div>
-
+      <div class="thumb-wrap">
+        <div>🔢</div>
+        <div class="play-overlay"><div class="play-circle">▶</div></div>
+      </div>
       <div class="game-info">
         <h3>2048 Master</h3>
         <p>Puzzle • Casual</p>
         <div class="rating">★★★★★</div>
       </div>
-
     </div>
 
   </div>
-
-  <div class="no-results" id="noResults">
-    😕 No games found.
-  </div>
-
 </section>
 
-
-<!-- MODAL -->
-<div class="modal" id="gameModal">
-
-  <div class="modal-box">
-
-    <button class="close" onclick="closeGame()">×</button>
-
-    <div class="modal-icon" id="modalIcon">🎮</div>
-
-    <h2 id="modalTitle">Game</h2>
-
-    <p id="modalText">
-      Get ready to play!
-    </p>
-
-    <button class="play-btn" id="startGameBtn">
-      ▶ START GAME
-    </button>
-
-    <div id="gameArea"></div>
-
-  </div>
-
-</div>
-
-
-<!-- FOOTER -->
 <footer>
-
-  <div class="footer-inner">
-
-    <div class="footer-brand">
-      <img src="logo.png" alt="PARVEZ GAMES">
-      <strong>PARVEZ GAMES</strong>
-    </div>
-
-    <p>
-      © 2026 PARVEZ GAMES • Play. Explore. Enjoy.
-    </p>
-
-  </div>
-
+  <div class="logo">PARVEZ <span>GAMES</span></div>
+  © 2026 PARVEZ GAMES • Play. Explore. Enjoy.
 </footer>
 
+<!-- GAME MODAL -->
+<div class="modal" id="gameModal">
+  <div class="modal-box">
+    <h2 id="modalTitle">Game</h2>
+    <div id="gameArea"></div>
+    <button class="close-btn" onclick="closeGame()">Close</button>
+  </div>
+</div>
 
 <script>
+let currentCat = "all";
 
-const cards = document.querySelectorAll(".game-card");
-const searchInput = document.getElementById("searchInput");
-const noResults = document.getElementById("noResults");
-
-let currentCategory = "all";
-
-
-/* SEARCH */
-searchInput.addEventListener("input", filterGames);
-
+function setCategory(btn){
+  document.querySelectorAll(".cat").forEach(c => c.classList.remove("active"));
+  btn.classList.add("active");
+  currentCat = btn.dataset.cat;
+  filterGames();
+}
 
 function filterGames(){
-
-  const search = searchInput.value.toLowerCase();
-  let visible = 0;
-
-  cards.forEach(card => {
-
+  const q = document.getElementById("searchInput").value.toLowerCase();
+  document.querySelectorAll(".game-card").forEach(card => {
     const title = card.dataset.title.toLowerCase();
-    const category = card.dataset.category;
-
-    const matchSearch = title.includes(search);
-    const matchCategory =
-      currentCategory === "all" ||
-      category === currentCategory;
-
-    if(matchSearch && matchCategory){
-
-      card.style.display = "block";
-      visible++;
-
-    }else{
-
-      card.style.display = "none";
-
-    }
-
+    const cat = card.dataset.category;
+    const matchCat = currentCat === "all" || cat === currentCat;
+    const matchSearch = title.includes(q);
+    card.style.display = (matchCat && matchSearch) ? "block" : "none";
   });
-
-  noResults.style.display =
-    visible === 0 ? "block" : "none";
 }
 
-
-/* CATEGORY */
-document.querySelectorAll(".category").forEach(button => {
-
-  button.addEventListener("click", () => {
-
-    document.querySelectorAll(".category")
-      .forEach(btn => btn.classList.remove("active"));
-
-    button.classList.add("active");
-
-    currentCategory = button.dataset.category;
-
-    filterGames();
-
-  });
-
-});
-
-
-/* SHOW ALL */
-function showAll(){
-
-  currentCategory = "all";
-  searchInput.value = "";
-
-  document.querySelectorAll(".category")
-    .forEach(btn => btn.classList.remove("active"));
-
-  document.querySelector('[data-category="all"]')
-    .classList.add("active");
-
-  filterGames();
-
-  scrollToGames();
+function favoriteGame(e, btn){
+  e.stopPropagation();
+  btn.textContent = btn.textContent === "♡" ? "♥" : "♡";
+  btn.style.color = btn.textContent === "♥" ? "#ff4d6d" : "white";
 }
 
+function openGame(title, emoji, type){
+  document.getElementById("modalTitle").textContent = title;
+  const area = document.getElementById("gameArea");
+  area.innerHTML = "";
 
-/* SCROLL */
-function scrollToGames(){
-
-  document.getElementById("games")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
-
+  if(type === "puzzle" && title.includes("2048")){
+    start2048(area);
+  } else if(type === "racing"){
+    startSimpleRacer(area);
+  } else {
+    // generic clicker style game
+    startClicker(area, emoji);
+  }
+  document.getElementById("gameModal").classList.add("active");
 }
-
-
-/* FAVORITE */
-function favoriteGame(event,button){
-
-  event.stopPropagation();
-
-  button.classList.toggle("active");
-
-  button.textContent =
-    button.classList.contains("active")
-    ? "♥"
-    : "♡";
-
-}
-
-
-/* MODAL */
-const modal = document.getElementById("gameModal");
-const modalTitle = document.getElementById("modalTitle");
-const modalIcon = document.getElementById("modalIcon");
-const modalText = document.getElementById("modalText");
-const startGameBtn = document.getElementById("startGameBtn");
-const gameArea = document.getElementById("gameArea");
-
-let selectedGame = "";
-
-
-function openGame(title,icon,category){
-
-  selectedGame = title;
-
-  modalTitle.textContent = title;
-  modalIcon.textContent = icon;
-
-  modalText.textContent =
-    "Ready to play " + title + "?";
-
-  gameArea.innerHTML = "";
-
-  startGameBtn.style.display = "inline-block";
-
-  modal.classList.add("show");
-
-}
-
 
 function closeGame(){
-
-  modal.classList.remove("show");
-
-  gameArea.innerHTML = "";
-
+  document.getElementById("gameModal").classList.remove("active");
 }
 
-
-modal.addEventListener("click", function(e){
-
-  if(e.target === modal){
-    closeGame();
-  }
-
-});
-
-
-document.addEventListener("keydown", function(e){
-
-  if(e.key === "Escape"){
-    closeGame();
-  }
-
-});
-
-
-/* MINI GAME */
-startGameBtn.addEventListener("click", function(){
-
-  startGameBtn.style.display = "none";
-
-  if(selectedGame === "Turbo Racer"){
-
-    startRacer();
-
-  }else{
-
-    startClickGame();
-
-  }
-
-});
-
-
-/* CLICK GAME */
-function startClickGame(){
-
-  let score = 0;
-  let time = 10;
-
-  gameArea.innerHTML = `
-
-    <div style="width:100%;text-align:center">
-
-      <h3 style="margin-bottom:10px">
-        ⚡ Click as fast as you can!
-      </h3>
-
-      <p id="scoreText"
-         style="margin-bottom:15px;color:#00bfff">
-         Score: 0 | Time: 10
-      </p>
-
-      <button id="clickButton"
-        style="
-        padding:20px 35px;
-        border:0;
-        border-radius:15px;
-        background:#00bfff;
-        color:white;
-        font-size:20px;
-        font-weight:bold;
-        cursor:pointer;">
-        CLICK!
-      </button>
-
-    </div>
+function startClicker(area, emoji){
+  let score = 0, time = 15;
+  area.innerHTML = `
+    <div style="font-size:70px;margin:10px 0">${emoji}</div>
+    <div id="scoreText" style="font-size:20px;margin-bottom:15px">Score: 0 | Time: 15</div>
+    <button id="clickBtn" style="padding:15px 30px;font-size:18px;border:none;border-radius:12px;background:var(--blue);color:#000;font-weight:bold;cursor:pointer">TAP!</button>
   `;
-
-  const clickButton =
-    document.getElementById("clickButton");
-
-  const scoreText =
-    document.getElementById("scoreText");
-
-  clickButton.onclick = function(){
-
+  const btn = document.getElementById("clickBtn");
+  const scoreText = document.getElementById("scoreText");
+  btn.onclick = () => {
     score++;
-
-    scoreText.textContent =
-      "Score: " + score + " | Time: " + time;
-
+    scoreText.textContent = `Score: ${score} | Time: ${time}`;
   };
-
   const timer = setInterval(() => {
-
     time--;
-
-    scoreText.textContent =
-      "Score: " + score + " | Time: " + time;
-
+    scoreText.textContent = `Score: ${score} | Time: ${time}`;
     if(time <= 0){
-
       clearInterval(timer);
-
-      clickButton.disabled = true;
-
-      clickButton.textContent = "GAME OVER";
-
-      scoreText.textContent =
-        "🏆 Final Score: " + score;
-
+      btn.disabled = true;
+      btn.textContent = "GAME OVER";
+      scoreText.textContent = `🏆 Final Score: ${score}`;
     }
-
-  },1000);
-
+  }, 1000);
 }
 
-
-/* SIMPLE RACING GAME */
-function startRacer(){
-
-  let score = 0;
-
-  gameArea.innerHTML = `
-
-    <div style="
-      width:100%;
-      max-width:300px;
-      height:260px;
-      margin:auto;
-      background:#151b28;
-      border:2px solid #26354c;
-      border-radius:15px;
-      position:relative;
-      overflow:hidden;
-      text-align:center;">
-
-      <div style="
-        position:absolute;
-        left:50%;
-        top:25px;
-        transform:translateX(-50%);
-        font-size:45px;"
-        id="car">
-        🏎️
-      </div>
-
-      <div style="
-        position:absolute;
-        bottom:20px;
-        left:20px;
-        right:20px;
-        display:flex;
-        justify-content:space-between;">
-
-        <button onclick="moveCar(-1)"
-          style="
-          padding:12px 20px;
-          border:0;
-          border-radius:10px;
-          background:#00bfff;
-          color:white;
-          font-weight:bold;">
-          ◀
-        </button>
-
-        <button onclick="moveCar(1)"
-          style="
-          padding:12px 20px;
-          border:0;
-          border-radius:10px;
-          background:#00bfff;
-          color:white;
-          font-weight:bold;">
-          ▶
-        </button>
-
-      </div>
-
-      <div id="raceScore"
-        style="
-        position:absolute;
-        top:10px;
-        left:0;
-        right:0;
-        color:white;">
-        Score: 0
-      </div>
-
+function startSimpleRacer(area){
+  area.innerHTML = `
+    <div style="width:100%;max-width:280px;height:240px;margin:auto;background:#151b28;border:2px solid #26354c;border-radius:15px;position:relative;overflow:hidden">
+      <div id="car" style="position:absolute;left:50%;bottom:30px;transform:translateX(-50%);font-size:40px">🏎️</div>
+      <div id="raceScore" style="position:absolute;top:10px;left:0;right:0;color:white">Score: 0</div>
+    </div>
+    <div style="margin-top:15px;display:flex;gap:15px;justify-content:center">
+      <button onclick="moveCar(-1)" style="padding:12px 22px;border:0;border-radius:10px;background:var(--blue);color:#000;font-weight:bold">◀ LEFT</button>
+      <button onclick="moveCar(1)" style="padding:12px 22px;border:0;border-radius:10px;background:var(--blue);color:#000;font-weight:bold">RIGHT ▶</button>
     </div>
   `;
-
-  window.racePosition = 50;
-  score = 0;
-
-  window.moveCar = function(direction){
-
-    racePosition += direction * 15;
-
-    if(racePosition < 20)
-      racePosition = 20;
-
-    if(racePosition > 80)
-      racePosition = 80;
-
-    document.getElementById("car").style.left =
-      racePosition + "%";
-
-    score++;
-
-    document.getElementById("raceScore")
-      .textContent =
-      "Score: " + score;
-
+  window.racePos = 50;
+  window.raceScore = 0;
+  window.moveCar = function(dir){
+    racePos += dir * 18;
+    if(racePos < 15) racePos = 15;
+    if(racePos > 85) racePos = 85;
+    document.getElementById("car").style.left = racePos + "%";
+    raceScore++;
+    document.getElementById("raceScore").textContent = "Score: " + raceScore;
   };
-
 }
 
+function start2048(area){
+  area.innerHTML = `<p style="color:#9aa6bd;margin-bottom:10px">Simple 2048 coming soon. Use Turbo Racer for now!</p>
+  <a href="turbo-racer.html" style="color:var(--blue)">Play Turbo Racer →</a>`;
+}
 
-/* LOAD */
 filterGames();
-
 </script>
-
 </body>
 </html>

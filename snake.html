@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snake - Parvez Games</title>
+<style>
+  body{margin:0;background:#0f0f13;color:white;font-family:Arial;display:flex;flex-direction:column;align-items:center;padding:20px}
+  canvas{background:#1a1a22;border-radius:12px;border:2px solid #00bfff}
+  #score{font-size:22px;margin:15px}
+  button{padding:12px 25px;border:none;border-radius:25px;background:#00bfff;color:black;font-weight:bold;cursor:pointer;margin:5px}
+</style>
+</head>
+<body>
+  <h1>Snake</h1>
+  <div id="score">Score: 0</div>
+  <canvas id="c" width="400" height="400"></canvas>
+  <div>
+    <button onclick="dir='up'">↑</button><br>
+    <button onclick="dir='left'">←</button>
+    <button onclick="dir='right'">→</button><br>
+    <button onclick="dir='down'">↓</button>
+  </div>
+  <button onclick="start()" style="margin-top:15px">Start / Restart</button>
+
+<script>
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+const size = 20;
+let snake, food, dir, score, loop;
+
+function start(){
+  snake = [{x:10,y:10}];
+  food = {x:15,y:15};
+  dir = "right";
+  score = 0;
+  clearInterval(loop);
+  loop = setInterval(update, 120);
+  document.getElementById("score").textContent = "Score: 0";
+}
+
+function update(){
+  const head = {...snake[0]};
+  if(dir==="right") head.x++;
+  if(dir==="left") head.x--;
+  if(dir==="up") head.y--;
+  if(dir==="down") head.y++;
+
+  if(head.x<0||head.x>=20||head.y<0||head.y>=20||snake.some(s=>s.x===head.x&&s.y===head.y)){
+    clearInterval(loop);
+    alert("Game Over! Score: "+score);
+    return;
+  }
+  snake.unshift(head);
+  if(head.x===food.x && head.y===food.y){
+    score++;
+    document.getElementById("score").textContent = "Score: "+score;
+    food = {x:Math.floor(Math.random()*20), y:Math.floor(Math.random()*20)};
+  } else snake.pop();
+
+  ctx.fillStyle = "#1a1a22";
+  ctx.fillRect(0,0,400,400);
+  ctx.fillStyle = "#00bfff";
+  snake.forEach(s=>ctx.fillRect(s.x*size,s.y*size,size-2,size-2));
+  ctx.fillStyle = "#ff4d6d";
+  ctx.fillRect(food.x*size,food.y*size,size-2,size-2);
+}
+
+document.addEventListener("keydown", e=>{
+  if(e.key==="ArrowUp" && dir!=="down") dir="up";
+  if(e.key==="ArrowDown" && dir!=="up") dir="down";
+  if(e.key==="ArrowLeft" && dir!=="right") dir="left";
+  if(e.key==="ArrowRight" && dir!=="left") dir="right";
+});
+start();
+</script>
+</body>
+</html>
